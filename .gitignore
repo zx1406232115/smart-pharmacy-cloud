@@ -1,0 +1,18 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.vite/
+
+# ---- ESP32-S3 摄像头固件（Camera_Display）----
+# 构建产物
+Camera/Camera_Display/esp32Board_wifi/build/
+# esp-dl 组件：仅保留 ESP32-S3 目标库与头文件（本项目 sdkconfig 固定 esp32s3，其他目标与开发工具不参与构建）
+Camera/Camera_Display/components/esp-dl/tools/
+Camera/Camera_Display/components/esp-dl/examples/
+Camera/Camera_Display/components/esp-dl/tutorial/
+Camera/Camera_Display/components/esp-dl/docs/
+Camera/Camera_Display/components/esp-dl/.github/
+Camera/Camera_Display/components/esp-dl/lib/esp32/
+Camera/Camera_Display/components/esp-dl/lib/esp32s2/
+Camera/Camera_Display/components/esp-dl/lib/esp32c3/

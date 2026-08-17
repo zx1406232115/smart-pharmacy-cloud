@@ -1,0 +1,24 @@
+{
+  "name": "smart-pharmacy-cloud",
+  "version": "1.0.0",
+  "private": true,
+  "description": "智能药柜云端管理平台 — Smart Pharmacy Cloud Platform (B/S · LAN · ESP-01S IoT)",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm run dev -w server",
+    "dev:web": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "start": "npm run build && npm run start -w server",
+    "smoke": "node server/scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=18.11"
+  }
+}

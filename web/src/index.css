@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-page text-slate-900 font-sans text-sm;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  ::selection {
+    @apply bg-indigo-100 text-indigo-900;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 rounded-full;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-300;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  /* ---- 卡片容器 ---- */
+  .card {
+    @apply bg-white rounded-2xl border border-slate-200/60 shadow-soft;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-soft-lg hover:border-slate-300/70;
+  }
+
+  /* ---- 按钮 ---- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-xl px-3.5 py-2 text-sm font-medium transition-all duration-150 select-none disabled:opacity-45 disabled:pointer-events-none focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/40;
+  }
+  .btn-primary {
+    @apply btn bg-indigo-600 text-white shadow-sm hover:bg-indigo-700 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900;
+  }
+  .btn-soft {
+    @apply btn bg-brand-50 text-indigo-600 hover:bg-brand-100 active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50;
+  }
+  .btn-danger-soft {
+    @apply btn bg-rose-50 text-rose-600 hover:bg-rose-100 active:scale-[0.98];
+  }
+
+  /* ---- 表单 ---- */
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10;
+  }
+  .label {
+    @apply block text-xs font-medium text-slate-500 mb-1.5;
+  }
+  .select {
+    @apply input appearance-none pr-8 bg-no-repeat cursor-pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+  }
+
+  /* ---- 表格 ---- */
+  .th {
+    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap;
+  }
+  .td {
+    @apply px-4 py-3.5 whitespace-nowrap;
+  }
+  .trow {
+    @apply border-t border-slate-100 transition-colors hover:bg-slate-50/60;
+  }
+
+  /* ---- 页头 ---- */
+  .page-head {
+    @apply flex flex-wrap items-end justify-between gap-4 mb-6;
+  }
+  .page-title {
+    @apply text-xl font-bold tracking-tight text-slate-900;
+  }
+  .page-sub {
+    @apply text-[13px] text-slate-400 mt-1;
+  }
+
+  /* ---- 状态色辅助 ---- */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium;
+  }
+}
+
+/* ---- 凭证打印区 ---- */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible !important;
+  }
+  .print-area {
+    position: fixed !important;
+    inset: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+}
